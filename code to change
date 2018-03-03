@@ -1,0 +1,22 @@
+	def print_board(turn) #Prints the current game board (filled portion only)
+		(0...turn).each do |row_index|
+			print "Row #{row_index+1}: Code Pegs: "
+			(0..3).each do |code_index|
+				print "#{@row[row_index][:code_peg][code_index]} "
+			end
+			print "Key Pegs: "
+			(0..3).each do |key_index|
+				print "#{@row[row_index][:key_peg][key_index]} "
+			end
+			puts
+		end
+	end
+
+		puts "\n#{player.name}, you have won #{player.wins} game(s) and lost #{player.losses} game(s)."
+	puts "Your best scores is #{player.best} turn(s)." if player.best != -1
+	puts "Would you like to play again (yes/no)? "
+
+
+	puts "\nThanks for playing Master Codebreaker, #{player.name}!"
+puts "You won #{player.wins} games and lost #{player.losses} game(s)."
+puts "Your best score was #{player.best} turn(s)." if player.best != -1

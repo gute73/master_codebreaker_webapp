@@ -11,22 +11,12 @@ class GameLogic # The game logic
 	end
 
 	def play # Plays one game of Master Codebreaker
-		puts "Try to guess the computer player's secret code in 12 turns!"
-		puts "A black key peg means that one of your guesses is correct"
-		puts "both in color and placement. A white key peg means that"
-		puts "one of your guesses is correct in color but not in placement."
-		puts "The position of the key pegs do not necessarily match"
-		puts "the code pegs to which they refer."
-		puts
-
 		while 1
 			@turn += 1
 			player_turn
-			puts
-			@board.print_board(@turn)
-			puts
+
 			if winner?
-				puts "You are victorious in #{@turn} turn(s)!\n"
+#				puts "You are victorious in #{@turn} turn(s)!\n"
 				@player.wins += 1
 				if @player.best > @turn || @player.best == -1
 					@player.best = @turn
@@ -34,7 +24,7 @@ class GameLogic # The game logic
 				return 
 			end
 			if @turn >= 12
-				puts "You have been defeated!\n"
+#				puts "You have been defeated!\n"
 				@player.losses += 1
 				return
 			end
@@ -52,20 +42,20 @@ class GameLogic # The game logic
 
 	def player_turn # Executes one turn
 		begin
-			puts "Guess the secret code. The colors are red, green, blue, yellow,"
-			puts "purple, and orange. Colors may be used more than once."
-			puts
-			print "Peg 1: "
+#			puts "Guess the secret code. The colors are red, green, blue, yellow,"
+#			puts "purple, and orange. Colors may be used more than once."
+#			puts
+#			print "Peg 1: "
 			peg1_guess = gets.chomp.upcase
-			print "Peg 2: "
+#			print "Peg 2: "
 			peg2_guess = gets.chomp.upcase
-			print "Peg 3: "
+#			print "Peg 3: "
 			peg3_guess = gets.chomp.upcase
-			print "Peg 4: "
+#			print "Peg 4: "
 			peg4_guess = gets.chomp.upcase
 			raise ArgumentError if guess_error?(peg1_guess) || guess_error?(peg2_guess) || guess_error?(peg3_guess) || guess_error?(peg4_guess)
 		rescue
-			puts "You must enter one of the six listed colors."
+#			puts "You must enter one of the six listed colors."
 			retry
 		end
 
@@ -216,44 +206,20 @@ class Board # Manages the creation and manipulation of the game board
 	def get_key_peg(row, peg_num)
 		@row[row-1][:key_peg][peg_num-1]
 	end
-
-	def print_board(turn) #Prints the current game board (filled portion only)
-		(0...turn).each do |row_index|
-			print "Row #{row_index+1}: Code Pegs: "
-			(0..3).each do |code_index|
-				print "#{@row[row_index][:code_peg][code_index]} "
-			end
-			print "Key Pegs: "
-			(0..3).each do |key_index|
-				print "#{@row[row_index][:key_peg][key_index]} "
-			end
-			puts
-		end
-	end
 end
 
-Player = Struct.new(:name, :wins, :losses, :best)
+Player = Struct.new(:wins, :losses, :best)
 
 Code = Struct.new(:code1, :code2, :code3, :code4)
 
-begin
-	puts "Please enter your name: "
-	player = Player.new(gets.chomp, 0, 0, -1)
-	raise ArgumentError if player.name.empty?
-rescue
-	puts "You must enter a name to continue."
-	retry
-end
-
+player = Player.new(0, 0, -1)
+=begin
 play_again = true
 while play_again
-	puts "Let's play!"
+#	puts "Let's play!"
  	game = GameLogic.new(player)
 	game.play
 
-	puts "\n#{player.name}, you have won #{player.wins} game(s) and lost #{player.losses} game(s)."
-	puts "Your best scores is #{player.best} turn(s)." if player.best != -1
-	puts "Would you like to play again (yes/no)? "
 	begin
 		keep_playing = gets.chomp
 		raise ArgumentError if keep_playing != "yes" && keep_playing != "Yes" && keep_playing != "no" && keep_playing != "No"
@@ -264,9 +230,7 @@ while play_again
 	play_again = (keep_playing == "yes" || keep_playing == "Yes") ? true : false
 end
 
-puts "\nThanks for playing Master Codebreaker, #{player.name}!"
-puts "You won #{player.wins} games and lost #{player.losses} game(s)."
-puts "Your best score was #{player.best} turn(s)." if player.best != -1
+=end
 
 get '/' do
 	erb :index, :locals => {}
