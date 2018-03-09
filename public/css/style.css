@@ -82,6 +82,21 @@ html, body {
 	font-size: 25px;
 }
 
+#submit {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border: 1px solid #111111;
+	border-radius: 5px;
+	-webkit-text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+	-moz-text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+	text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+	-webkit-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+	-moz-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+	box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+	text-decoration: none;
+}
+
 .rows {
 	display: block;
 	position: relative;
@@ -104,6 +119,7 @@ html, body {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 8%;
 	height: 20px;
 	width: 20px;
 	border-radius: 10px;
@@ -111,10 +127,31 @@ html, body {
 }
 
 .pegbox {
+	display: inline-block;
+	position: relative;
+	height: 50%;
+	width: 50%;
+	float: right;
+}
 
+.peg1, .peg2, .peg3, .peg4 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15%;
+	height: 8px;
+	width: 8px;
+	border-radius: 4px;
+	background-color: #000000;
 }
 
 h1 {
 	font: 20px bold;
 	text-align: center;
+}
+
+form {
+	position: relative;
+	top: 10%;
+	margin-top: 5px;
 }
