@@ -211,7 +211,7 @@ form {
 	#instructions {
 		display: block;
 		position: relative;
-		font-size: 20px;
+		font-size: 15px;
 		line-height: 1.2;
 		padding: 15px;
 		background-color: #000000;
@@ -224,7 +224,7 @@ form {
 		overflow: hidden;
 	}
 
-	#expand, #center_column {
+	#expand, #center_column, #close {
 		display: none;
 	}
 }
