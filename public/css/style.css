@@ -77,6 +77,10 @@ html, body {
 	opacity: 0.75;
 }
 
+#expand2 {
+	display: none;
+}
+
 #contract {
 	padding: 5px;
 	font-size: 40px;
@@ -199,5 +203,17 @@ form {
 		-moz-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
 		box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
 		text-decoration: none;
+	}
+
+	#expand {
+		display: none;
+	}
+
+	#expand2 {
+		position: fixed;
+		font-size: 20px;
+		padding: 10px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
