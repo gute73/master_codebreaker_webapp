@@ -4,7 +4,7 @@ var turn = 1;
 $(document).ready( function() {
 
 	$('#expand').click( function() {
-		$('#instructions').css('transform', 'translate(-200px, 0px)');
+		$('#instructions').css('transform', 'translate(-450px, 0px)');
 	});
 
 	$('#expand').hover( function() {
