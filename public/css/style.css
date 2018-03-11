@@ -210,8 +210,7 @@ form {
 	}
 
 	#expand2 {
-		position: relative;
-		display: block;
+		position: absolute;
 		width: 30%;
 		font-size: 20px;
 		padding: 10px;
