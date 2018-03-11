@@ -13,10 +13,6 @@ $(document).ready( function() {
 		$(this).css({'color': '#ffffff', 'background-color': '#000000'});
 	});
 
-	$('#expand2').click( function() {
-		$('#instructions').css('transform', 'translate(-450px, 0px)');
-	});
-
 	$('#contract').click( function() {
 		$('#instructions').css('transform', 'translate(0px, 0px)');
 	});
