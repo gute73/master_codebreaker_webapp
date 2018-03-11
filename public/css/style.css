@@ -224,7 +224,7 @@ form {
 		overflow: hidden;
 	}
 
-	#expand, #center_column, #close {
+	#expand, #center_column, #close, #contract {
 		display: none;
 	}
 }
