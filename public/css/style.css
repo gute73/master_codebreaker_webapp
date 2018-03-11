@@ -158,9 +158,9 @@ form {
 @media only screen and (max-device-width: 480px) {
 	#instructions {
 		position: fixed;
-		font-size: 10px;
+		font-size: 20px;
 		line-height: 1.2;
-		padding: 5px;
+		padding: 10px;
 		background-color: #000000;
 		opacity: 0.75;
 		z-index: 1;
@@ -172,4 +172,15 @@ form {
 		transition: 0.5s;
 		overflow: hidden;
 	}
+
+	#center_column {
+		position: relative;
+		background-color: #000000;
+		width: 80%;
+		height: 100%;
+		min-height: 100%;
+		padding: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		overflow: auto;
 }
