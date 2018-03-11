@@ -176,11 +176,28 @@ form {
 	#center_column {
 		position: relative;
 		background-color: #000000;
-		width: 80%;
+		width: 100%;
 		height: 100%;
 		min-height: 100%;
 		padding: 10px;
 		margin-left: auto;
 		margin-right: auto;
 		overflow: auto;
+	}
+
+	#submit {
+		position: relative;
+		left: 50%;
+		transform: translate(-50%, 0);
+		border: 1px solid #111111;
+		border-radius: 5px;
+		font-size: 1em;
+		-webkit-text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+		-moz-text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+		text-shadow: 0px -0.5px 0px rgb(0,0,0,0.5);
+		-webkit-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+		-moz-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+		box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
+		text-decoration: none;
+	}
 }
