@@ -169,6 +169,7 @@ form {
 	}
 
 	#center_column {
+		display: block;
 		position: relative;
 		background-color: #000000;
 		width: 100%;
@@ -206,21 +207,21 @@ form {
 	}
 }
 
-@media only screen and (max-device-width: 480px) and (orientation: landscape) {
+@media only screen and (max-device-width: 640px) and (orientation: landscape) {
 	#instructions {
+		display: block;
 		position: relative;
 		font-size: 20px;
 		line-height: 1.2;
 		padding: 15px;
 		background-color: #000000;
-		z-index: 1;
 		height: 100%;
 		min-height: 100%;
 		width: 100%;
 		overflow: hidden;
 	}
 
-	#expand {
+	#expand, #center_column {
 		display: none;
 	}
 }
