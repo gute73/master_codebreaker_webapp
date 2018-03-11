@@ -102,6 +102,10 @@ html, body {
 	text-decoration: none;
 }
 
+#tilt {
+	display: none;
+}
+
 .rows {
 	display: block;
 	position: relative;
@@ -160,7 +164,7 @@ form {
 }
 
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
-	#instructions {
+	#instructions, #expand {
 		display: none;
 	}
 
@@ -171,8 +175,6 @@ form {
 		height: 100%;
 		min-height: 100%;
 		padding: 10px;
-		margin-left: auto;
-		margin-right: auto;
 		overflow: auto;
 	}
 
@@ -190,10 +192,6 @@ form {
 		-moz-box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
 		box-shadow: 0px 2px 0px #626468, 0px 1px 15px rgb(0,0,0,0.4);
 		text-decoration: none;
-	}
-
-	#expand {
-		display: none;
 	}
 
 	#tilt {
@@ -220,5 +218,9 @@ form {
 		min-height: 100%;
 		width: 100%;
 		overflow: hidden;
+	}
+
+	#expand {
+		display: none;
 	}
 }
