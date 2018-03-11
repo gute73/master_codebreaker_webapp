@@ -102,10 +102,6 @@ html, body {
 	text-decoration: none;
 }
 
-#tilt {
-	display: none;
-}
-
 .rows {
 	display: block;
 	position: relative;
@@ -163,17 +159,9 @@ form {
 	top: 12%;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
 	#instructions {
-		position: relative;
-		font-size: 20px;
-		line-height: 1.2;
-		padding: 15px;
-		background-color: #000000;
-		z-index: 1;
-		height: 100%;
-		min-height: 100%;
-		width: 100%;
+		display: none;
 	}
 
 	#center_column {
@@ -204,14 +192,33 @@ form {
 		text-decoration: none;
 	}
 
+	#expand {
+		display: none;
+	}
+
 	#tilt {
 		display: block;
 		font-size: 20px;
 		padding: 10px;
-		text-align: center;
+		text-align: center;	
 	}
 
 	#notOnPhone {
 		display: none;
+	}
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: landscape) {
+	#instructions {
+		position: relative;
+		font-size: 20px;
+		line-height: 1.2;
+		padding: 15px;
+		background-color: #000000;
+		z-index: 1;
+		height: 100%;
+		min-height: 100%;
+		width: 100%;
+		overflow: hidden;
 	}
 }
