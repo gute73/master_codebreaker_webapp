@@ -212,8 +212,9 @@ form {
 	#expand2 {
 		position: absolute;
 		top: 2px;
-		
-		width: 30%;
+		background-color: #647084;
 		font-size: 20px;
-		padding: 10px;	}
+		padding: 10px;
+		text-align: center;	
+	}
 }
