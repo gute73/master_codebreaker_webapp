@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 
 class CodeBreaker # The game mechanics
-	attr_accessor :turn, :player
+	attr_accessor :turn, :player, :board
 
 	def initialize(player)
 		@player = player
@@ -15,6 +15,9 @@ class CodeBreaker # The game mechanics
 # Generates and returns the computer player's secret code
 	def generate_code 
 		color = ["green", "blue", "red", "purple", "yellow", "orange"]
+		4.times do
+			@secret_code.pop
+		end
 		4.times do
 			@secret_code.push(color[Random.rand(0..5)])
 		end
@@ -112,7 +115,7 @@ class CodeBreaker # The game mechanics
 	end
 
 	def winner? # Returns true if the player has won the game
-		if @board.get_key_peg(@turn, 1) == "black" && @board.get_key_peg(@turn, 1) == @board.get_key_peg(@turn, 2) && @board.get_key_peg(@turn, 2) == @board.get_key_peg(@turn, 3) && @board.get_key_peg(@turn, 3) == @board.get_key_peg(@turn, 4)
+		if @board.get_key_peg(@turn-1, 1) == "black" && @board.get_key_peg(@turn-1, 1) == @board.get_key_peg(@turn-1, 2) && @board.get_key_peg(@turn-1, 2) == @board.get_key_peg(@turn-1, 3) && @board.get_key_peg(@turn-1, 3) == @board.get_key_peg(@turn-1, 4)
 			return true
 		else
 			return false
@@ -126,8 +129,8 @@ class CodeBreaker # The game mechanics
 	def update_stats
 		if winner?
 			@player.wins += 1
-			if @player.best > @turn || @player.best == -1
-				@player.best = @turn
+			if @player.best > @turn-1 || @player.best == -1
+				@player.best = @turn-1
 			end 
 		elsif loser?
 			@player.losses += 1
@@ -142,7 +145,7 @@ class Board # Manages the creation and manipulation of the game board
 		@row = Array.new(12)
 		(0..11).each do |index|
 			@row[index] = Hash.new
-			@row[index][:code_peg] = []
+			@row[index][:code_peg] = ["black", "black", "black", "black"]
 			@row[index][:key_peg] = []
 		end
 	end
@@ -186,13 +189,24 @@ Player = Struct.new(:wins, :losses, :best)
 Code = Struct.new(:code1, :code2, :code3, :code4)
 new_player = Player.new(0, 0, -1)
 game = CodeBreaker.new(new_player)
+winner = false
+loser = false
 
 get '/' do
-	erb :index, :locals => {:player => game.player}
+	erb :index, :locals => {:game => game, :player => game.player, :board => game.board, :winner => winner, :loser => loser}
 end
 
 post '/submitRow' do
 	game.player_turn(params['peg1_guess'], params['peg2_guess'], params['peg3_guess'], params['peg4_guess'])
-	game.update_stats() if game.winner? || game.loser?
+	if game.winner? || game.loser?
+		game.winner? ? winner=true : loser=true
+		game.update_stats
+		game.board = Board.new
+		game.turn = 1
+		game.generate_code
+	else
+		winner = false
+		loser = false
+	end
 	redirect '/'
 end
