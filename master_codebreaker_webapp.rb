@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 
 class CodeBreaker # The game mechanics
-	attr_accessor :turn, :player, :board
+	attr_accessor :turn, :player, :board, :turnRow
 
 	def initialize(player)
 		@player = player
@@ -10,6 +10,8 @@ class CodeBreaker # The game mechanics
 		@turn = 1
 		@secret_code = Array.new
 		generate_code
+		@turnRow = Array.new(12)
+		@turnRow[0] = "current"
 	end
 
 # Generates and returns the computer player's secret code
@@ -27,6 +29,8 @@ class CodeBreaker # The game mechanics
 	def player_turn(peg1_guess, peg2_guess, peg3_guess, peg4_guess)
 		@board.fill_code_row(@turn, peg1_guess, peg2_guess, peg3_guess, peg4_guess)
 		match(peg1_guess, peg2_guess, peg3_guess, peg4_guess)
+		@turnRow[@turn-1] = ""
+		@turnRow[@turn] = "current"
 		@turn += 1
 	end
 
@@ -193,7 +197,7 @@ winner = false
 loser = false
 
 get '/' do
-	erb :index, :locals => {:game => game, :player => game.player, :board => game.board, :winner => winner, :loser => loser}
+	erb :index, :locals => {:game => game, :player => game.player, :board => game.board, :winner => winner, :loser => loser, :turnRow => game.turnRow}
 end
 
 post '/submitRow' do
@@ -202,6 +206,8 @@ post '/submitRow' do
 		game.winner? ? winner=true : loser=true
 		game.update_stats
 		game.board = Board.new
+		game.turnRow.clear
+		game.turnRow[0] = "current"
 		game.turn = 1
 		game.generate_code
 	else

@@ -23,7 +23,7 @@ $(document).ready( function() {
 		$(this).css({'color': '#ffffff', 'background-color': '#000000'});
 	});
 
-	$('.blocks').on('click', '.marbles', function() {
+	$('#current').on('click', '.marbles', function() {
 		var element = $(this);
 		var class2 = element.attr('class').split(' ')[1];
 		var input;
@@ -94,3 +94,16 @@ function toggleColor(element, color) {
 			element.css('background-color', 'orange');
 	}
 }
+
+// Ensure that user places all 4 marbles
+//function validateForm() {
+//	var value1 = $('#input1').val();
+//	var value2 = $('#input2').val();
+//	var value3 = $('#input3').val();
+//	var value4 = $('#input4').val();
+//	if (value1 == "black") || (value2 == "black") || (value3 == "black") || (value4 == "black") {
+//		return false;
+//	} else {
+//		return true;
+//	}
+//}
