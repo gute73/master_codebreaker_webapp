@@ -96,14 +96,15 @@ function toggleColor(element, color) {
 }
 
 // Ensure that user places all 4 marbles
-//function validateForm() {
-//	var value1 = $('#input1').val();
-//	var value2 = $('#input2').val();
-//	var value3 = $('#input3').val();
-//	var value4 = $('#input4').val();
-//	if (value1 == "black") || (value2 == "black") || (value3 == "black") || (value4 == "black") {
-//		return false;
-//	} else {
-//		return true;
-//	}
-//}
+function validateForm() {
+	var value1 = $('#input1').val();
+	var value2 = $('#input2').val();
+	var value3 = $('#input3').val();
+	var value4 = $('#input4').val();
+	if (value1 == "black" || value2 == "black" || value3 == "black" || value4 == "black") {
+		alert("Please place all four marbles before submitting your guess!");
+		return false;
+	} else {
+		return true;
+	}
+}

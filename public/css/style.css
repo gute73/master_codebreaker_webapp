@@ -139,7 +139,7 @@ html, body {
 	position: relative;
 	height: 50%;
 	width: 50%;
-	float: right;
+	float: left;
 }
 
 .peg1, .peg2, .peg3, .peg4 {

@@ -468,7 +468,7 @@
 							</div>
 						</div>
 					</div>
-					<form id='guessForm' method='post' action='/submitRow'>
+					<form id='guessForm' method='post' action='/submitRow' onsubmit='return validateForm()'>
 						<input id='input1' class='inputs' type='hidden' name='peg1_guess' value='black'>
 						<input id='input2' class='inputs' type='hidden' name='peg2_guess' value='black'>
 						<input id='input3' class='inputs' type='hidden' name='peg3_guess' value='black'>
