@@ -19,17 +19,17 @@ html, body {
 
 #instructions {
 	position: fixed;
-	font-size: 30px;
+	font-size: 25px;
 	line-height: 1.2;
 	padding: 10px;
 	background-color: #000000;
 	opacity: 0.75;
 	z-index: 1;
 	top: 0px;
-	right: -450px;
+	right: -500px;
 	height: 100%;
 	min-height: 100%;
-	width: 400px;
+	width: 450px;
 	transition: 0.5s;
 	overflow: hidden;
 }
