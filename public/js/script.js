@@ -76,22 +76,22 @@ function toggleInput(input, element) {
 function toggleColor(element, color) {
 	switch (color) {
 		case "green":
-			element.css('background-color', 'green');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #008000, #000000)');
 			break;
 		case "blue":
-			element.css('background-color', 'blue');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #0000FF, #000000)');
 			break;
 		case "red":
-			element.css('background-color', 'red');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #FF0000, #000000)');
 			break;
 		case "purple":
-			element.css('background-color', 'purple');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #800080, #000000)');
 			break;
 		case "yellow":
-			element.css('background-color', 'yellow');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #FFFF00, #000000)');
 			break;
 		case "orange":
-			element.css('background-color', 'orange');
+			element.css('background', 'radial-gradient(circle at 33% 33%, #ffa500, #000000)');
 	}
 }
 

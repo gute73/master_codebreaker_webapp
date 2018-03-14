@@ -195,9 +195,18 @@ new_player = Player.new(0, 0, -1)
 game = CodeBreaker.new(new_player)
 winner = false
 loser = false
+drawMarble = {
+	'black' => 'background: #000000',
+	'green' => 'background: radial-gradient(circle at 33% 33%, #008000, #000000)',
+	'blue' => 'background: radial-gradient(circle at 33% 33%, #0000FF, #000000)',
+	'red' => 'background: radial-gradient(circle at 33% 33%, #FF0000, #000000)',
+	'purple' => 'background: radial-gradient(circle at 33% 33%, #800080, #000000)',
+	'yellow' => 'background: radial-gradient(circle at 33% 33%, #FFFF00, #000000)',
+	'orange' => 'background: radial-gradient(circle at 33% 33%, #ffa500, #000000)',
+}
 
 get '/' do
-	erb :index, :locals => {:game => game, :player => game.player, :board => game.board, :winner => winner, :loser => loser, :turnRow => game.turnRow}
+	erb :index, :locals => {:game => game, :player => game.player, :board => game.board, :winner => winner, :loser => loser, :turnRow => game.turnRow, :drawMarble => drawMarble}
 end
 
 post '/submitRow' do
